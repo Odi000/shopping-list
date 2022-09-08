@@ -22,7 +22,7 @@
 
     <div>
       <label for="item">Enter a new item:</label>
-      <input type="text" name="item" id="item" >
+      <input type="text" name="item" id="item" onkeydown="enter()">
       <button>Add item</button>
     </div>
 
@@ -33,26 +33,42 @@
     <script>
         const insert = document.querySelector('input')
              ,uList = document.querySelector('ul')
-             ,add = document.querySelector('button');
+             ,mainButton = document.querySelector('button');
+        
+        //Declaring the function
+        function addItem() {
+          if (Boolean(insert.value)){
             
-            console.log(insert.value);
+            const itemName = insert.value;
+            insert.value = '';
+            
+            const item = document.createElement('li'),
+                  span = document.createElement('span'),
+                  btn = document.createElement('button');
+            
+            item.appendChild(span);
+            item.appendChild(btn);
 
-            add.addEventListener('click', (a) => {
-                const itemName = insert.value;
-                insert.value = '';
-                
-                const item = document.createElement('li'),
-                      span = document.createElement('span'),
-                      btn = document.createElement('button');
-                
-                item.appendChild(span);
-                item.appendChild(btn);
+            span.textContent = itemName;
+            btn.textContent = 'Delete';
+            btn.addEventListener('click', () => {
+              uList.removeChild(item)
+            });
 
-                span.textContent = itemName;
-                btn.textContent = 'Delete';
+            uList.appendChild(item);
+            insert.focus();
+          }
+        }
 
-                uList.appendChild(item);
-            })
+        //The function when you Click the 'Add item' button
+        mainButton.addEventListener('click', addItem);
+
+        //If eneter is pressed the above function will run
+        function enter(){
+          if(event.key === 'Enter') {
+            addItem();
+          }
+        }
 
     </script>
   </body>
