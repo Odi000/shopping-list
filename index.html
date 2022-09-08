@@ -10,7 +10,7 @@
       }
 
       li button {
-        font-size: 8px;
+        font-size: 10px;
         margin-left: 20px;
         color: #665;
       }
@@ -32,17 +32,27 @@
 
     <script>
         const insert = document.querySelector('input')
-             ,ulist = document.querySelector('ul')
+             ,uList = document.querySelector('ul')
              ,add = document.querySelector('button');
             
             console.log(insert.value);
 
             add.addEventListener('click', (a) => {
-                let itemName = insert.value;
+                const itemName = insert.value;
                 insert.value = '';
-                console.log(itemName);
-            })
+                
+                const item = document.createElement('li'),
+                      span = document.createElement('span'),
+                      btn = document.createElement('button');
+                
+                item.appendChild(span);
+                item.appendChild(btn);
 
+                span.textContent = itemName;
+                btn.textContent = 'Delete';
+
+                uList.appendChild(item);
+            })
 
     </script>
   </body>
