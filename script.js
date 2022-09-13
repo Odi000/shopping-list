@@ -32,7 +32,17 @@ mainButton.addEventListener('click', addItem);
 
 //If eneter is pressed the above function will run
 function enter(){
-if(event.key === 'Enter') {
-addItem();
+     if(event.key === 'Enter') {
+     addItem();
+     }
 }
-}
+
+//Trying the other way by using addEventListener function
+/*
+insert.addEventListener('keydown',(e) => {
+     console.log(e);
+     if(e.key === 'Enter'){
+          addItem();
+     }
+})
+*/
