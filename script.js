@@ -30,7 +30,7 @@ insert.focus();
 //The function when you Click the 'Add item' button
 mainButton.addEventListener('click', addItem);
 
-//If eneter is pressed the above function will run
+//If eneter is pressed the addItem function will run
 function enter(){
      if(event.key === 'Enter') {
      addItem();
