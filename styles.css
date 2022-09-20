@@ -25,6 +25,9 @@
   font-family: 'Sansation', sans-serif;
 }
 
+html {
+  zoom: 1.5;
+}
 body {
   margin: 0;
 }
@@ -94,7 +97,7 @@ footer {
   padding: 10px 0;
 }
 
-@media (min-width: 412px) {
+@media (min-width: 621px) {
   section {
     margin: 0 auto;
     padding-top: 50px;
